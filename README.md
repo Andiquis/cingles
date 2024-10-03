@@ -8,6 +8,7 @@ Esta es una aplicación web diseñada específicamente para ejecutarse en navega
 ## Requisitos
 
 Asegúrate de tener Termux instalado en tu dispositivo Android.
+
 <a href="https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk"><img src="https://img.shields.io/badge/DOWNLOAD_APK-25D366?style=for-the-badge&logo=github&logoColor=black" />
 
 ## Instalación y Ejecución

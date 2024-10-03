@@ -7,10 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($ingles) && !empty($espanol)) {
         $db = getDatabaseConnection();
-        $stmt = $db->prepare("INSERT INTO palabras (palabra_ingles, palabra_espanol) VALUES (?, ?)");
+        
+        // Verificar si la palabra en inglés ya existe
+        $stmt = $db->prepare("SELECT COUNT(*) FROM palabras WHERE palabra_ingles = ? OR palabra_espanol = ?");
         $stmt->execute([$ingles, $espanol]);
-        header('Location: index.php');
-        exit();
+        $count = $stmt->fetchColumn();
+
+        if ($count > 0) {
+            // La palabra ya existe, mostrar un mensaje o manejarlo de otra manera
+            $errorMessage = "La palabra ya existe en la base de datos.";
+        } else {
+            // La palabra no existe, proceder a insertarla
+            $stmt = $db->prepare("INSERT INTO palabras (palabra_ingles, palabra_espanol) VALUES (?, ?)");
+            $stmt->execute([$ingles, $espanol]);
+            header('Location: index.php');
+            exit();
+        }
     }
 }
 ?>
@@ -105,6 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 16px;
             margin-right: 5px;
         }
+
+        .error-message {
+            color: red;
+            margin-top: 20px;
+        }
     </style>
     <script>
         function redirectToIndex() {
@@ -130,6 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <button type="submit">Añadir</button>
         </form>
+        <?php if (isset($errorMessage)): ?>
+            <div class="error-message"><?php echo $errorMessage; ?></div>
+        <?php endif; ?>
     </div>
 </body>
 </html>

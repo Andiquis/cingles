@@ -18,7 +18,10 @@ Sigue los siguientes pasos para configurar la aplicación:
 pkg update && pkg upgrade
 pkg install php sqlite
 git clone https://github.com/Andiquis/cingles
+ls
 cd cingles
+chmod +x *
+ls
 php -S 0.0.0.0:8001
 ```
 ## Acceso a la Aplicación

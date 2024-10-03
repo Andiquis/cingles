@@ -18,7 +18,9 @@ Sigue los siguientes pasos para configurar la aplicación:
 pkg update
 pkg upgrade
 pkg install nano
-pkg install php sqlite
+pkg install php 
+pkg install sqlite
+pkg install git
 git clone https://github.com/Andiquis/cingles
 ls
 cd cingles

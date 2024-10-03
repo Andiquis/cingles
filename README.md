@@ -51,9 +51,8 @@ nano bash.bashrc
 ```
 En el final del codigo de bash.bashrc adicionar las siguientes lineas de codigo
 ```bash
-cd $HOME
-cd cingles
-bash start.sh
+cd $HOME/cingles
+bash start.sh &
 ```
   Guarda el archivo y reinicia termux.
   

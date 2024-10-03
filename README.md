@@ -15,7 +15,8 @@ Asegúrate de tener Termux instalado en tu dispositivo Android.
 
 Sigue los siguientes pasos para configurar la aplicación:
  ```bash
-pkg update && pkg upgrade
+pkg update
+pkg upgrade
 pkg install nano
 pkg install php sqlite
 git clone https://github.com/Andiquis/cingles

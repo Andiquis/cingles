@@ -44,7 +44,7 @@ http://localhost:8001
 
 ### Opcional
 
-  -Este paso es para automatizar el encendido del servidor de manera automatica en la vamos a configurar el archivo de arranque de termux para que el servidor arranque al momento de entrar a termux
+  -Este paso es para automatizar el encendido del servidor y iniciar la aplicacion en el navegador de manera automatica en la vamos a configurar el archivo de arranque de termux para que el servidor arranque al momento de entrar a termux
  ```bash
 cd $HOME
 cd ..
@@ -56,6 +56,7 @@ En el final del codigo de bash.bashrc adicionar las siguientes lineas de codigo
 ```bash
 cd $HOME/cingles
 bash start.sh &
+am start -n com.android.chrome/com.google.android.apps.chrome.Main -d http://127.0.0.1:8001/index.php &
 ```
   Guarda el archivo y reinicia termux.
   
